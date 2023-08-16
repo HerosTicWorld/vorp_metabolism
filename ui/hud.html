@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Vorp Metabolism</title>
+</head>
+
+<body>
+
+    <main>
+        <div class="water">
+            <i class="fa-sharp fa-solid fa-droplet"></i>
+                </div>
+        <div class="food">
+            <i class="fa-solid fa-drumstick-bite"></i>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+
+            var sizeWater = 40.0;
+            var sizeFood =  40.0;
+
+            if ($(window).width() == 1920 && $(window).height() == 1080) {
+
+            } else if ($(window).height() != 1080) {
+                sizeWater = (($(window).height() * sizeWater) / 1080);
+                sizeFood = (($(window).height() * sizeFood) / 1080);
+            }
+
+            var barwater = $('.water');
+            var barfood = $('.food');
+
+            barwater.circleProgress({
+                emptyFill: 'rgba(255, 255, 255, 0.5)',
+                value: 0.0,
+                size: sizeWater,
+                thickness: 4,
+                fill: {
+                    gradient: ['#0b6a9e']
+                },
+            });
+            barfood.circleProgress({
+                emptyFill: 'rgba(255, 255, 255, 0.5)',
+                value: 0.0,
+                size: sizeFood,
+                thickness: 4,
+                fill: {
+                    color: ['#e3860d']
+                },
+            });
+
+            window.addEventListener("message", function(event) {
+                if (event.data.action == "update") {
+                    barwater.circleProgress('value', event.data.water);
+                    barfood.circleProgress('value', event.data.food);
+                } else if (event.data.action == "hide") {
+                    $('.water').fadeOut();
+                    $('.food').fadeOut();
+                } else if (event.data.action == "show") {
+                    $('.water').fadeIn();
+                    $('.food').fadeIn();
+                }
+            });
+
+        });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/circle-progress.js"></script>
+</body>
+
+</html>
