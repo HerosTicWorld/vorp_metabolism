@@ -1,4 +1,5 @@
 # ***VORP Metabolism Lua version***
+# ***Edited by Heros***
 
 ## Heros Correction of the script
 
@@ -10,7 +11,7 @@ Fix VORP_METABOLISM using RedemRP:Reboot
 - You can adjust the effects of alcohol according to the type of alcohol consumed
 - Totally OPEN source, you can modify according to your desires
 - Set the model of each item that is consumed, you can find them here: https://rdr2.mooshe.tv/
-- Changed UI for hunger and thirst needs using JavaScript
+- Changed UI for hunger and thirst needs using JavaScript to have it like health & Stamina, than around the map, especially if you use the minimap without GPS.
 - Choose how to consume for each item: "eat" or "drink"
 - You can set how to consume for animations, for example for stew or for bottle
 
@@ -18,6 +19,7 @@ Fix VORP_METABOLISM using RedemRP:Reboot
 <img src=https://zupimages.net/up/23/33/1t3h.png>
 
 
+## Next is the DEFAULT VERSION
 
 
 If you have the C# version of the script and want to replace it, it's just drag and drop. Everything works without having to change anything!
